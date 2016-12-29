@@ -1,3 +1,4 @@
 function isUnstablePair(filename1, filename2) {
-    return filename2 < filename1 && filename2 > filename1.toUpperCase()
+    return (filename2 < filename1 && filename2 > filename1.toUpperCase()) ||
+        (filename1 < filename2 && filename1 > filename2.toUpperCase())
 }
