@@ -6,7 +6,6 @@ function stringsRearrangement(inputArray) {
       inputArray[j] = tmp;
     };
     if (depth === inputArray.length) {
-      var correct = true;
       for (var i = 0; i < inputArray.length - 1; i++) {
         var differences = 0;
         for (var j = 0; j < inputArray[i].length; j++) {
@@ -15,13 +14,10 @@ function stringsRearrangement(inputArray) {
           }
         }
         if (differences !== 1) {
-          correct = false;
+          return false;
         }
       }
-      if (correct) {
-        return true;
-      }
-      return false;
+      return true;      
     }
     for (var i = depth; i < inputArray.length; i++) {
       swap(depth, i);
@@ -32,8 +28,5 @@ function stringsRearrangement(inputArray) {
     }
     return false;
   };
-  if (bruteForce(0, inputArray)) {
-    return true;
-  }
-  return false;
+  return bruteForce(0, inputArray);    
 }
